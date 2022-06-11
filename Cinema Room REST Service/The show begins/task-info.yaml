@@ -110,18 +110,19 @@ files:
     management.endpoints.web.exposure.include=*
     management.endpoint.shutdown.enabled=true
   learner_created: false
-- name: src/cinema/SeatsController.java
-  visible: true
-  learner_created: true
 - name: src/cinema/pojo/Theater.java
   visible: true
   learner_created: true
 - name: src/cinema/pojo/Seat.java
   visible: true
   learner_created: true
+- name: src/cinema/SeatsController.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13375#comment
 status: Solved
 feedback:
-  message: Congratulations!
-  time: Thu, 31 Mar 2022 17:54:19 UTC
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: Sat, 11 Jun 2022 13:29:56 UTC
 record: 1

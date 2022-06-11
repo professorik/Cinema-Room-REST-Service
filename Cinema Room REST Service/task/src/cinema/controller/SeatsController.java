@@ -1,10 +1,12 @@
 package cinema.controller;
 
+import cinema.exception.*;
 import cinema.pojo.Seat;
 import cinema.pojo.Stats;
 import cinema.pojo.Theater;
 import cinema.pojo.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,36 +22,50 @@ import java.util.Map;
 public class SeatsController {
     @Autowired
     Theater theater;
+    @Value("${cinema.room.password}")
+    String password;
 
     @GetMapping("/seats")
-    public Theater getSeatsInfo(){
+    public Theater getSeatsInfo() {
         return theater;
     }
 
     @PostMapping("/purchase")
-    public ResponseEntity<Ticket> purchaseSeat(@RequestBody Seat seat) {
-        if (!theater.isInBounds(seat)){
-            return new ResponseEntity(Map.of("error", "The number of a row or a column is out of bounds!"), HttpStatus.BAD_REQUEST);
-        }else if (!theater.isAvailable(seat)){
-            return new ResponseEntity(Map.of("error", "The ticket has been already purchased!"), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Ticket> purchaseSeat(@RequestBody Seat seat) throws ServiceException {
+        if (!theater.isInBounds(seat)) {
+            throw new OutOfBoundsException();
+        } else if (!theater.isAvailable(seat)) {
+            throw new AlreadySoldException();
         }
         return ResponseEntity.ok(theater.takeSeat(seat));
     }
 
     @PostMapping("/return")
-    public ResponseEntity<Map<String, Seat>> returnTicket(@RequestBody Map<String, String> token){
+    public ResponseEntity<Map<String, Seat>> returnTicket(@RequestBody Map<String, String> token) throws InvalidTokenException {
         Seat temp = theater.refundTicketByToken(token.get("token"));
-        if (temp == null){
-            return new ResponseEntity(Map.of("error", "Wrong token!"), HttpStatus.BAD_REQUEST);
+        if (temp == null) {
+            throw new InvalidTokenException();
         }
         return ResponseEntity.ok(Map.of("returned_ticket", temp));
     }
 
     @PostMapping("/stats")
-    public ResponseEntity<Stats> getStats(@RequestParam(required = false) String password){
-        if (password != null && password.equals("super_secret")){
+    public ResponseEntity<Stats> getStats(@RequestParam(required = false) String password) throws BadAuthException {
+        if (password != null && password.equals(this.password)) {
             return ResponseEntity.ok(theater.stats());
         }
-        return new ResponseEntity(Map.of("error", "The password is wrong!"), HttpStatus.UNAUTHORIZED);
+        throw new BadAuthException();
+    }
+
+    @ExceptionHandler(BadAuthException.class)
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    Map<String, String> badAuthHandler(Exception e) {
+        return Map.of("error", e.getMessage());
+    }
+
+    @ExceptionHandler(ServiceException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    Map<String, String> errorHandler(Exception e) {
+        return Map.of("error", e.getMessage());
     }
 }

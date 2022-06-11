@@ -1,5 +1,7 @@
 package cinema.pojo;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -12,8 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @project Cinema Room REST Service
  */
 public class Theater {
-    private final int totalRows;
-    private final int totalColumns;
+    @Getter private final int totalRows;
+    @Getter private final int totalColumns;
     private final Map<Integer, Boolean> seats;
     private final Map<String, Seat> tickets;
 
@@ -63,14 +65,6 @@ public class Theater {
 
     private Integer getIndex(Seat seat) {
         return getIndex(seat.getRow(), seat.getColumn());
-    }
-
-    public int getTotalRows() {
-        return totalRows;
-    }
-
-    public int getTotalColumns() {
-        return totalColumns;
     }
 
     public List<Seat> getAvailableSeats() {

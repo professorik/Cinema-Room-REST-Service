@@ -570,26 +570,6 @@ files:
         }
     }
   learner_created: true
-- name: src/cinema/exception/PurchaseException.java
-  visible: true
-  text: |
-    package cinema.exception;
-
-    import org.springframework.http.HttpStatus;
-    import org.springframework.web.bind.annotation.ResponseStatus;
-
-    /**
-     * @author professorik
-     * @created 03/04/2022 - 16:03
-     * @project Cinema Room REST Service
-     */
-    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-    public class PurchaseException extends Exception {
-        public PurchaseException(String message) {
-            super(message);
-        }
-    }
-  learner_created: true
 - name: src/cinema/controller/SeatsController.java
   visible: true
   text: |
@@ -647,10 +627,25 @@ files:
 - name: src/cinema/config/CinemaRoomConfig.java
   visible: true
   learner_created: true
+- name: src/cinema/exception/ServiceException.java
+  visible: true
+  learner_created: true
+- name: src/cinema/exception/InvalidTokenException.java
+  visible: true
+  learner_created: true
+- name: src/cinema/exception/BadAuthException.java
+  visible: true
+  learner_created: true
+- name: src/cinema/exception/OutOfBoundsException.java
+  visible: true
+  learner_created: true
+- name: src/cinema/exception/AlreadySoldException.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13378#comment
 status: Solved
 feedback:
   message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
     Academy</a> to continue learning.
-  time: Sat, 11 Jun 2022 13:27:11 UTC
+  time: Sat, 11 Jun 2022 14:32:22 UTC
 record: 4

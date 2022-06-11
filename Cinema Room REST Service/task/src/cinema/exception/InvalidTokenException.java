@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 /**
  * @author professorik
- * @created 03/04/2022 - 16:03
+ * @created 11/06/2022 - 16:59
  * @project Cinema Room REST Service
  */
-@ResponseStatus(code = HttpStatus.BAD_REQUEST)
-public class PurchaseException extends Exception {
-    public PurchaseException(String message) {
-        super(message);
+@ResponseStatus(HttpStatus.BAD_REQUEST)
+public class InvalidTokenException extends ServiceException {
+    public InvalidTokenException() {
+        super("Wrong token!");
     }
 }
