@@ -33,6 +33,10 @@ public class Seat {
         this.column = column;
     }
 
+    public int getPrice() {
+        return row <= 4? 10: 8;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("{");

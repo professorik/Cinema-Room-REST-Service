@@ -522,48 +522,6 @@ files:
         }
     }
   learner_created: true
-- name: src/cinema/pojo/PricedSeat.java
-  visible: true
-  text: |
-    package cinema.pojo;
-
-    /**
-     * @author professorik
-     * @created 03/04/2022 - 15:58
-     * @project Cinema Room REST Service
-     */
-    public class PricedSeat extends Seat{
-        private int price;
-
-        public PricedSeat(Seat seat){
-            super(seat.getRow(), seat.getColumn());
-            this.price = seat.getRow() <= 4? 10: 8;
-        }
-
-        public PricedSeat(int row, int column){
-            super(row, column);
-            this.price = row <= 4? 10: 8;
-        }
-
-        public int getPrice() {
-            return price;
-        }
-
-        public void setPrice(int price) {
-            this.price = price;
-        }
-
-        @Override
-        public String toString() {
-            final StringBuffer sb = new StringBuffer("{");
-            sb.append("price=").append(price);
-            sb.append(", row=").append(super.getRow());
-            sb.append(", col=").append(super.getColumn());
-            sb.append('}');
-            return sb.toString();
-        }
-    }
-  learner_created: true
 - name: src/cinema/pojo/Seat.java
   visible: true
   text: |
@@ -686,10 +644,13 @@ files:
 - name: src/cinema/pojo/Stats.java
   visible: true
   learner_created: true
+- name: src/cinema/config/CinemaRoomConfig.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/13378#comment
 status: Solved
 feedback:
   message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
     Academy</a> to continue learning.
-  time: Sun, 03 Apr 2022 15:31:35 UTC
-record: -1
+  time: Sat, 11 Jun 2022 13:27:11 UTC
+record: 4

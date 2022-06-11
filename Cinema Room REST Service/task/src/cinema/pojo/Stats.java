@@ -6,34 +6,34 @@ package cinema.pojo;
  * @project Cinema Room REST Service
  */
 public class Stats {
-    private int current_income;
-    private int number_of_available_seats;
-    private int number_of_purchased_tickets;
+    private int currentIncome;
+    private int numberOfAvailableSeats;
+    private int numberOfPurchasedTickets;
 
     public Stats() {
     }
 
-    public int getCurrent_income() {
-        return current_income;
+    public int getCurrentIncome() {
+        return currentIncome;
     }
 
-    public void setCurrent_income(int current_income) {
-        this.current_income = current_income;
+    public void setCurrentIncome(int current_income) {
+        this.currentIncome = current_income;
     }
 
-    public int getNumber_of_available_seats() {
-        return number_of_available_seats;
+    public int getNumberOfAvailableSeats() {
+        return numberOfAvailableSeats;
     }
 
-    public void setNumber_of_available_seats(int number_of_available_seats) {
-        this.number_of_available_seats = number_of_available_seats;
+    public void setNumberOfAvailableSeats(int number_of_available_seats) {
+        this.numberOfAvailableSeats = number_of_available_seats;
     }
 
-    public int getNumber_of_purchased_tickets() {
-        return number_of_purchased_tickets;
+    public int getNumberOfPurchasedTickets() {
+        return numberOfPurchasedTickets;
     }
 
-    public void setNumber_of_purchased_tickets(int number_of_purchased_tickets) {
-        this.number_of_purchased_tickets = number_of_purchased_tickets;
+    public void setNumberOfPurchasedTickets(int number_of_purchased_tickets) {
+        this.numberOfPurchasedTickets = number_of_purchased_tickets;
     }
 }

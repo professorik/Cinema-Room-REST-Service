@@ -4,6 +4,7 @@ import cinema.pojo.Seat;
 import cinema.pojo.Stats;
 import cinema.pojo.Theater;
 import cinema.pojo.Ticket;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,8 @@ import java.util.Map;
  */
 @RestController
 public class SeatsController {
-    public static Theater theater;
+    @Autowired
+    Theater theater;
 
     @GetMapping("/seats")
     public Theater getSeatsInfo(){

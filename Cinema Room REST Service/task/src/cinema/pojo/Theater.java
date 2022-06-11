@@ -32,9 +32,8 @@ public class Theater {
     public Ticket takeSeat(Seat seat) {
         seats.put(getIndex(seat), false);
         String token = UUID.randomUUID().toString();
-        Seat res = new PricedSeat(seat);
-        tickets.put(token, res);
-        return new Ticket(token, res);
+        tickets.put(token, seat);
+        return new Ticket(token, seat);
     }
 
     public boolean isAvailable(Seat seat) {
@@ -66,20 +65,20 @@ public class Theater {
         return getIndex(seat.getRow(), seat.getColumn());
     }
 
-    public int getTotal_rows() {
+    public int getTotalRows() {
         return totalRows;
     }
 
-    public int getTotal_columns() {
+    public int getTotalColumns() {
         return totalColumns;
     }
 
-    public List<PricedSeat> getAvailable_seats() {
-        List<PricedSeat> result = new ArrayList<>();
+    public List<Seat> getAvailableSeats() {
+        List<Seat> result = new ArrayList<>();
         for (int i = 1; i <= totalRows; i++) {
             for (int j = 1; j <= totalColumns; j++) {
                 if (seats.get(getIndex(i, j))) {
-                    result.add(new PricedSeat(i, j));
+                    result.add(new Seat(i, j));
                 }
             }
         }
@@ -92,18 +91,18 @@ public class Theater {
 
     public Stats stats() {
         Stats stats = new Stats();
-        List<PricedSeat> seatList = getAvailable_seats();
+        List<Seat> seatList = getAvailableSeats();
         int sum = 0;
         for (int i = 1; i <= totalRows; i++) {
             for (int j = 1; j <= totalColumns; j++) {
                 if (!seats.get(getIndex(i, j))) {
-                    sum += new PricedSeat(i, j).getPrice();
+                    sum += new Seat(i, j).getPrice();
                 }
             }
         }
-        stats.setCurrent_income(sum);
-        stats.setNumber_of_available_seats(seatList.size());
-        stats.setNumber_of_purchased_tickets(totalColumns * totalRows - seatList.size());
+        stats.setCurrentIncome(sum);
+        stats.setNumberOfAvailableSeats(seatList.size());
+        stats.setNumberOfPurchasedTickets(totalColumns * totalRows - seatList.size());
         return stats;
     }
 }

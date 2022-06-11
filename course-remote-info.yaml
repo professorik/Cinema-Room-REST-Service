@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/539847/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Sun, 03 Apr 2022 12:53:27 UTC
+update_date: Sat, 11 Jun 2022 12:58:12 UTC
 stages:
 - id: 945
   step: 13375
@@ -25,16 +25,16 @@ topics:
     theory_id: 3499
   - title: Units of information
     theory_id: 6865
+  - title: Introduction to Operating systems
+    theory_id: 9704
   - title: World Wide Web
     theory_id: 6633
   - title: HyperText Transfer Protocol
     theory_id: 6569
-  - title: Immutability
-    theory_id: 7929
-  - title: Introduction to operating systems
-    theory_id: 9704
   - title: Computer algorithms
     theory_id: 16547
+  - title: Immutability
+    theory_id: 7929
   - title: The big O notation
     theory_id: 16699
   - title: Data structures
@@ -43,7 +43,7 @@ topics:
     theory_id: 6434
   - title: HTTP URL
     theory_id: 6740
-  - title: Tags and attributes
+  - title: Tags and Attributes
     theory_id: 7536
   - title: HTML page structure
     theory_id: 6491
@@ -51,24 +51,26 @@ topics:
     theory_id: 7944
   - title: Getting started with Spring Boot
     theory_id: 6336
-  - title: HTTP messages
-    theory_id: 6752
-  - title: REST
-    theory_id: 7834
-  - title: Postman
-    theory_id: 8512
   - title: Basic project structure
     theory_id: 6339
   - title: IoC Container
     theory_id: 16851
   - title: Spring beans
     theory_id: 14641
+  - title: HTTP messages
+    theory_id: 6752
   - title: Introduction to Spring Web MVC
     theory_id: 13611
+  - title: REST
+    theory_id: 7834
+  - title: Postman
+    theory_id: 8512
   - title: Getting data from REST
     theory_id: 13287
   - title: Computer programming
     theory_id: 8739
+  - title: Paradigms
+    theory_id: 15860
   - title: Introduction to Java
     theory_id: 3500
   - title: Basic literals
@@ -109,8 +111,6 @@ topics:
     theory_id: 3507
   - title: Switch statement
     theory_id: 3504
-  - title: Characters
-    theory_id: 3514
   - title: Sizes and ranges
     theory_id: 3532
   - title: Type casting
@@ -123,8 +123,8 @@ topics:
     theory_id: 3489
   - title: Functional decomposition
     theory_id: 10570
-  - title: String
-    theory_id: 3523
+  - title: Overloading
+    theory_id: 3525
   - title: Primitive and reference types
     theory_id: 5035
   - title: Array
@@ -133,6 +133,12 @@ topics:
     theory_id: 3594
   - title: Iterating over arrays
     theory_id: 3602
+  - title: Characters
+    theory_id: 3514
+  - title: String
+    theory_id: 3523
+  - title: Final variables
+    theory_id: 7427
   - title: Errors in programs
     theory_id: 3536
   - title: What is an exception
@@ -143,18 +149,14 @@ topics:
     theory_id: 3614
   - title: Package
     theory_id: 3621
-  - title: Web development
-    theory_id: 13931
-  - title: Multidimensional array
-    theory_id: 1933
+  - title: Build tools
+    theory_id: 4284
   - title: Command line overview
     theory_id: 8977
-  - title: Parameters and options
+  - title: Parameters and Options
     theory_id: 9746
   - title: Java Archive
     theory_id: 4311
-  - title: Build tools
-    theory_id: 4284
   - title: Gradle basics
     theory_id: 5075
   - title: Basic project with Gradle
@@ -163,12 +165,18 @@ topics:
     theory_id: 7917
   - title: Dependency management
     theory_id: 5076
-  - title: External resources
-    theory_id: 6216
+  - title: Web development
+    theory_id: 13931
+  - title: Multidimensional array
+    theory_id: 1933
   - title: Pseudocode
     theory_id: 15090
+  - title: Pseudocode basics
+    theory_id: 19510
+  - title: External resources
+    theory_id: 6216
   - title: Fixed-size array
-    theory_id: 7255
+    theory_id: 20078
   - title: Dynamic array
     theory_id: 5357
   - title: Libraries
@@ -177,10 +185,10 @@ topics:
     theory_id: 6701
   - title: JSON
     theory_id: 6854
-  - title: Introduction to software architecture
-    theory_id: 15368
   - title: YAML
     theory_id: 12722
+  - title: Introduction to software architecture
+    theory_id: 15368
   - title: Introduction to generic programming
     theory_id: 3492
   - title: Generics and Object
@@ -197,10 +205,10 @@ topics:
     theory_id: 17197
   - title: Defining classes
     theory_id: 3618
-  - title: Instance methods
-    theory_id: 3495
   - title: Constructor
     theory_id: 3535
+  - title: Instance methods
+    theory_id: 3495
   - title: Access modifiers
     theory_id: 3589
   - title: Getters and setters
@@ -213,12 +221,22 @@ topics:
     theory_id: 3585
   - title: The Object class
     theory_id: 3596
+  - title: Multiple constructors
+    theory_id: 3538
+  - title: The keyword super
+    theory_id: 3588
   - title: Objects
     theory_id: 4727
-  - title: Interface
-    theory_id: 3615
+  - title: Static members
+    theory_id: 3534
   - title: Annotations basics
     theory_id: 3622
+  - title: Hiding and overriding
+    theory_id: 3572
+  - title: Polymorphism
+    theory_id: 3587
+  - title: Interface
+    theory_id: 3615
   - title: Boxing and unboxing
     theory_id: 3595
   1:
@@ -228,10 +246,6 @@ topics:
     theory_id: 8780
   - title: Handling requests with bodies
     theory_id: 13334
-  - title: Overloading
-    theory_id: 3525
-  - title: Final variables
-    theory_id: 7427
   - title: Hierarchy of exceptions
     theory_id: 3570
   - title: Exception handling
@@ -268,7 +282,3 @@ topics:
     theory_id: 3558
   - title: Thread-safe maps
     theory_id: 17081
-  - title: Multiple constructors
-    theory_id: 3538
-  - title: The keyword super
-    theory_id: 3588
