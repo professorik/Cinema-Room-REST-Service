@@ -8,8 +8,7 @@ import lombok.*;
  * @project Cinema Room REST Service
  */
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Seat {

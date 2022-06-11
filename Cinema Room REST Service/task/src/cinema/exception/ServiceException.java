@@ -5,7 +5,7 @@ package cinema.exception;
  * @created 11/06/2022 - 16:58
  * @project Cinema Room REST Service
  */
-public class ServiceException extends Exception {
+public class ServiceException extends RuntimeException {
     public ServiceException(String message) {
         super(message);
     }

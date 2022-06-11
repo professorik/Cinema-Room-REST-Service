@@ -2,11 +2,9 @@ package cinema.pojo;
 
 import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
  * @author professorik
@@ -16,30 +14,30 @@ import java.util.concurrent.ConcurrentHashMap;
 public class Theater {
     @Getter private final int totalRows;
     @Getter private final int totalColumns;
-    private final Map<Integer, Boolean> seats;
+    private final Set<Integer> seats;
     private final Map<String, Seat> tickets;
 
     public Theater(int totalRows, int totalColumns) {
-        this.seats = new ConcurrentHashMap<>();
+        this.seats = new ConcurrentSkipListSet<>();
         this.tickets = new ConcurrentHashMap<>();
         this.totalRows = totalRows;
         this.totalColumns = totalColumns;
         for (int i = 1; i <= totalRows; i++) {
             for (int j = 1; j <= totalColumns; j++) {
-                seats.put(getIndex(i, j), true);
+                seats.add(new Seat(i, j).hashCode());
             }
         }
     }
 
     public Ticket takeSeat(Seat seat) {
-        seats.put(getIndex(seat), false);
+        seats.remove(seat.hashCode());
         String token = UUID.randomUUID().toString();
         tickets.put(token, seat);
         return new Ticket(token, seat);
     }
 
     public boolean isAvailable(Seat seat) {
-        return seats.get(getIndex(seat));
+        return seats.contains(seat.hashCode());
     }
 
     public boolean isInBounds(Seat seat) {
@@ -54,25 +52,18 @@ public class Theater {
         Seat seat = getTicketByToken(token);
         if (seat != null) {
             tickets.remove(token);
-            seats.put(getIndex(seat), true);
+            seats.add(seat.hashCode());
         }
         return seat;
-    }
-
-    private Integer getIndex(int i, int j) {
-        return i * totalColumns + j;
-    }
-
-    private Integer getIndex(Seat seat) {
-        return getIndex(seat.getRow(), seat.getColumn());
     }
 
     public List<Seat> getAvailableSeats() {
         List<Seat> result = new ArrayList<>();
         for (int i = 1; i <= totalRows; i++) {
             for (int j = 1; j <= totalColumns; j++) {
-                if (seats.get(getIndex(i, j))) {
-                    result.add(new Seat(i, j));
+                var tmp = new Seat(i, j);
+                if (seats.contains(tmp.hashCode())) {
+                    result.add(tmp);
                 }
             }
         }
@@ -89,8 +80,9 @@ public class Theater {
         int sum = 0;
         for (int i = 1; i <= totalRows; i++) {
             for (int j = 1; j <= totalColumns; j++) {
-                if (!seats.get(getIndex(i, j))) {
-                    sum += new Seat(i, j).getPrice();
+                var tmp = new Seat(i, j);
+                if (!seats.contains(tmp.hashCode())) {
+                    sum += tmp.getPrice();
                 }
             }
         }
